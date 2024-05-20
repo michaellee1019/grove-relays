@@ -1,0 +1,18 @@
+{
+  "module_id": "michaellee1019:grove-relays",
+  "visibility": "public",
+  "url": "https://github.com/michaellee1019/grove-relays",
+  "description": "A Viam module that supports controlling Grove relays over I2C.",
+  "models": [
+    {
+      "api": "rdk:component:generic",
+      "model": "michaellee1019:grove:4_channel_spdt_relay"
+    }
+  ],
+  "build": {
+    "build": "sh build.sh",
+    "path": "dist/archive.tar.gz",
+    "arch" : ["linux/arm64", "linux/amd64"]
+  },
+  "entrypoint": "dist/models"
+}
