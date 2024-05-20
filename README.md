@@ -1,24 +1,21 @@
-# michaellee1019:i2cdetect
-A Viam module that returns all active i2c addresses as sensor values. Useful for troubleshooting wiring and connection issues without having to install software or SSH into the device.
+### michaellee1019:grove
+A Viam module that supports controlling Grove relays over I2C.
 
-# Attributes
-Specifying an `i2c_bus` attribute is required.
+#### 4_channel_spdt_relay
+This model implements support for the [Grove 4 Channel SPDT Relay](https://www.seeedstudio.com/Grove-4-Channel-SPDT-Relay-p-3119.html).
 
-```json
+Example Config:
+```
 {
-  "i2c_bus": 1,
+  "attributes": {},
+  "depends_on": [],
+  "model": "michaellee1019:grove:4_channel_spdt_relay",
+  "name": "my-model",
+  "type": "generic"
 }
 ```
 
-# GetReadings
-The Sensor.GetReadings response will look like the following. It will list the hexidecimal i2c address of each device that is communicating over the i2c bus. Note that the api call will trigger a read from devices at all addresses on the bus. It could have unindended consequences for devices that perform operations during a read, but is generally safe.
-
-```json
-	
-{
-  "active": [
-    "0x68"
-  ]
-}
-
+Example DoCommand:
+```
+{"pulse_one":{"address":"0x11", "bit":"0x2", "pulse_seconds": "1"}}
 ```
